@@ -1,13 +1,5 @@
 version: 2.1
 jobs:
-  one:
-    working_directory: ~/mern-starter
-    docker:
-      - image: circleci/node:10.16.3
-    steps:
-      - checkout
-      - run: echo "A first job"
-      - run: sleep 25
   build:
     working_directory: ~/mern-starter
     docker:
@@ -41,9 +33,3 @@ jobs:
           prefix: coverage
       - store_test_results:
           path: test-results.xml
-workflows:
-  version: 2
-  one_and_two:
-    jobs:
-      - one
-      - build
