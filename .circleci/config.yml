@@ -8,6 +8,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: check-breaking-changes
+          command: notacommand
+      - run:
           name: update-npm
           command: 'sudo npm install -g npm@5'
       - restore_cache:
