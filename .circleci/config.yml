@@ -1,5 +1,10 @@
 version: 2.1
 jobs:
+  preb-build-job:
+    steps:
+      - checkout
+      -run: echo "A first job"
+      -run: sleep 25
   build:
     working_directory: ~/mern-starter
     docker:
@@ -7,9 +12,6 @@ jobs:
       - image: mongo:4.2.0
     steps:
       - checkout
-      - run:
-          name: check-breaking-changes
-          command: notacommand
       - run:
           name: update-npm
           command: 'sudo npm install -g npm@5'
@@ -36,3 +38,9 @@ jobs:
           prefix: coverage
       - store_test_results:
           path: test-results.xml
+workflows:
+	version: 2
+	one_and_two:
+		jobs:
+			-	pre-build-job
+			- job
