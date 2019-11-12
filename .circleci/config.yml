@@ -1,6 +1,9 @@
 version: 2.1
 jobs:
-  preb-build-job:
+  one:
+    working_directory: ~/mern-starter
+    docker:
+      - image: circleci/node:10.16.3
     steps:
       - checkout
       - run: echo "A first job"
@@ -42,5 +45,5 @@ workflows:
   version: 2
   one_and_two:
     jobs:
-      - pre-build-job
-      - job
+      - one
+      - build
