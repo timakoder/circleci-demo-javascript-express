@@ -39,8 +39,8 @@ jobs:
       - store_test_results:
           path: test-results.xml
 workflows:
-	version: 2
-	one_and_two:
-		jobs:
-			-	pre-build-job
-			- job
+  version: 2
+  one_and_two:
+    jobs:
+      -	pre-build-job
+      - job
